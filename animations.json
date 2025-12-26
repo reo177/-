@@ -1,0 +1,25 @@
+{
+  "particles": {
+    "count": 50,
+    "speed": 2,
+    "size": 3,
+    "colors": ["#8B0000", "#ff0000", "#ff6b6b", "#1a0000"]
+  },
+  "typing": {
+    "speed": 100,
+    "deleteSpeed": 50,
+    "pauseTime": 2000
+  },
+  "scroll": {
+    "threshold": 0.1,
+    "rootMargin": "0px"
+  },
+  "glitch": {
+    "duration": 200,
+    "interval": 3000
+  },
+  "pulse": {
+    "duration": 2,
+    "scale": 1.1
+  }
+}
