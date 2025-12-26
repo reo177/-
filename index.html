@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucitar - 自己紹介</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B0000 0%, #1a0000 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 4px solid #000000;
+            box-shadow: 0 4px 20px rgba(139, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            color: #ffffff;
+            text-shadow: 3px 3px 6px #000000;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            position: relative;
+        }
+
+        header .subtitle {
+            font-size: 1.3em;
+            color: #ff6b6b;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        nav {
+            background-color: #000000;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #8B0000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+            border-bottom: 2px solid #ff6b6b;
+            background-color: rgba(255, 107, 107, 0.1);
+        }
+
+        main {
+            padding: 40px 20px;
+        }
+
+        section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 5px solid #8B0000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(139, 0, 0, 0.5);
+        }
+
+        section h2 {
+            color: #ff6b6b;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #8B0000;
+            text-shadow: 2px 2px 4px #000000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section h3 {
+            color: #ff6b6b;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid #8B0000;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            border-color: #ff6b6b;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .card h4 {
+            color: #ff6b6b;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #cccccc;
+            line-height: 1.8;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #8B0000 0%, #1a0000 100%);
+            color: #ffffff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+            border: 1px solid #ff6b6b;
+        }
+
+        .badge.green {
+            background: linear-gradient(135deg, #8B0000 0%, #1a0000 100%);
+            border-color: #ff6b6b;
+        }
+
+        .badge.blue {
+            background: linear-gradient(135deg, #8B0000 0%, #1a0000 100%);
+            border-color: #ff6b6b;
+        }
+
+        .link-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .link-list li {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: rgba(139, 0, 0, 0.1);
+            border-left: 4px solid #8B0000;
+            border-radius: 5px;
+        }
+
+        .link-list a {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .link-list a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 3px solid #8B0000;
+            margin: 20px 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background-color: #ff6b6b;
+            border-radius: 50%;
+            border: 3px solid #000000;
+        }
+
+        .timeline-item h4 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #000000;
+            color: #ff6b6b;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 3px solid #8B0000;
+        }
+
+        .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .danger-text {
+            color: #ff6b6b;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            section {
+                padding: 25px;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+    <header>
+        <h1>LUCITAR</h1>
+        <p class="subtitle">Developer | Creator | Executive</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#role">Role</a></li>
+            <li><a href="#links">Links</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p class="fade-in">こんにちは、<span class="highlight">Lucitar</span>です。</p>
+            <p class="fade-in">
+                私は<span class="danger-text pulse-animation">TAOG（The 3rd Alliance Open Gate）</span>の創設メンバーの一人であり、
+                現在は幹部として活動しています。組織内では<span class="highlight">すべてのサーバーの責任を負う管理者</span>として、
+                システムの安定性とセキュリティを確保する役割を担っています。
+            </p>
+            <p class="fade-in">
+                技術的な領域では、<span class="highlight">Bot開発</span>、<span class="highlight">プログラミング</span>、
+                <span class="highlight">サーバー管理</span>、<span class="highlight">戦略的計画</span>などに精通しており、
+                コミュニティの復興と発展に貢献しています。
+            </p>
+            
+            <div class="profile-grid">
+                <div class="card">
+                    <h4>📋 基本情報</h4>
+                    <p><strong>性別:</strong> 男</p>
+                    <p><strong>年齢:</strong> 21歳</p>
+                    <p><strong>身長:</strong> 172cm</p>
+                    <p><strong>第五時成長期中</strong></p>
+                    <p style="margin-top: 15px;"><strong>備考:</strong> 煙草と酒と性欲、これは絶対欠かせない私の要素、これなくなったら私が私ではなくなります、幹部仲間とかyoutubeの視聴者とかに言われましたw</p>
+                </div>
+                <div class="card">
+                    <h4>🎯 専門分野</h4>
+                    <p>
+                        <span class="badge">Bot Development</span>
+                        <span class="badge green">Programming</span>
+                        <span class="badge blue">Server Management</span>
+                        <span class="badge">Strategic Planning</span>
+                        <span class="badge green">Community Revival</span>
+                    </p>
+                </div>
+                <div class="card">
+                    <h4>🏢 所属組織</h4>
+                    <p><strong>TAOG (The 3rd Alliance Open Gate)</strong></p>
+                    <p><strong>役職:</strong> <span class="highlight">Co-Founder & Executive</span></p>
+                </div>
+                <div class="card">
+                    <h4>❤️ 好き/嫌い</h4>
+                    <p>趣味嗜好は多様で、論理的な思考を重視しています。</p>
+                </div>
+                <div class="card">
+                    <h4>🎨 趣味/特技</h4>
+                    <p>創作活動や音楽、技術的なものに興味があります。アプリ開発やメカニカルなものも得意です。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="parallax" data-speed="0.3">
+            <h2>Projects & Creations</h2>
+            
+            <div class="timeline fade-in">
+                <div class="timeline-item">
+                    <h4>Lævateinn - Discord Nuke Bot</h4>
+                    <p>
+                        <span class="highlight">フルアタック特化型</span>のDiscord Botを開発・公開しました。
+                        このプロジェクトでは、高度な機能と技術的な挑戦を通じて、Bot開発のスキルを向上させました。
+                    </p>
+                    <p class="danger-text">※ 他人へのサーバーへの無断使用は推奨しません。自己責任でご使用ください。</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>TAOG Official Website</h4>
+                    <p>
+                        <span class="highlight">The 3rd Alliance Open Gate</span>の公式ウェブサイトを制作しました。
+                        「敵を殺せば平和 だから我らは平和主義」という理念のもと、コーダー、ハッカー、反逆者たちの聖域として機能するサイトを構築しています。
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>YouTube Channel</h4>
+                    <p>
+                        <span class="highlight">@LwA70D3</span>として、ゲーム配信や麻雀、雑談などのコンテンツを配信しています。
+                        気軽に楽しめるコンテンツを中心に動画を投稿しています。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="role" class="parallax" data-speed="0.2">
+            <h2>Role & Responsibilities</h2>
+            <h3 class="fade-in">TAOGにおける役割</h3>
+            <p class="fade-in">
+                私は<span class="highlight">TAOGの創設メンバー</span>として、組織の設立当初から関わってきました。
+                現在は<span class="danger-text pulse-animation">Executive（幹部）</span>として、以下の責任を負っています：
+            </p>
+            <ul class="link-list">
+                <li>
+                    <strong>サーバー管理:</strong> すべてのサーバーの責任を負う管理者として、
+                    システムの安定性、セキュリティ、パフォーマンスを確保しています。
+                </li>
+                <li>
+                    <strong>Bot開発:</strong> 組織内で使用されるBotの開発とメンテナンスを担当しています。
+                </li>
+                <li>
+                    <strong>プログラミング:</strong> 高度なプログラミング技術を用いて、
+                    様々なプロジェクトに貢献しています。
+                </li>
+                <li>
+                    <strong>戦略的計画:</strong> 組織の長期的なビジョンと戦略の策定に参加しています。
+                </li>
+                <li>
+                    <strong>コミュニティ復興:</strong> コミュニティの活性化と復興に取り組んでいます。
+                </li>
+            </ul>
+        </section>
+
+        <section id="links" class="parallax" data-speed="0.25">
+            <h2>Links & Contact</h2>
+            <div class="profile-grid fade-in">
+                <div class="card">
+                    <h4>🌐 Websites</h4>
+                    <ul class="link-list">
+                        <li>
+                            <a href="https://laevateinn.vercel.app" target="_blank">Lævateinn - Discord Nuke Bot</a>
+                        </li>
+                        <li>
+                            <a href="https://t3aog-com.vercel.app" target="_blank">TAOG Official Website</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>📺 YouTube</h4>
+                    <ul class="link-list">
+                        <li>
+                            <a href="https://www.youtube.com/@LwA70D3" target="_blank">@LwA70D3</a>
+                        </li>
+                    </ul>
+                    <p style="margin-top: 15px; color: #cccccc;">
+                        ゲーム配信や麻雀、雑談などのコンテンツを配信しています。
+                    </p>
+                </div>
+                <div class="card">
+                    <h4>💬 Discord Servers</h4>
+                    <ul class="link-list">
+                        <li>
+                            <a href="https://discord.gg/g8ZfR8ZyTx" target="_blank">零帝</a>
+                        </li>
+                        <li>
+                            <a href="https://discord.gg/Rjekxj6Cea" target="_blank">暇人帝国</a>
+                        </li>
+                        <li>
+                            <a href="https://discord.gg/PHKYM6Bt8t" target="_blank">t3aog</a>
+                        </li>
+                    </ul>
+                    <p style="margin-top: 15px; color: #cccccc;">
+                        私が運営しているDiscordサーバーです。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="parallax" data-speed="0.2">
+            <h2>Philosophy</h2>
+            <p class="fade-in">
+                <span class="highlight">「敵を殺せば平和 だから我らは平和主義」</span>というTAOGの理念のもと、
+                技術的な挑戦と創造的な活動を通じて、コミュニティの発展に貢献することを目指しています。
+            </p>
+            <p class="fade-in">
+                コードを書き、ハックし、無限の可能性を追求する。それが私の活動の原動力です。
+            </p>
+            <p class="fade-in" style="margin-top: 20px; font-style: italic; color: #ff6b6b; font-size: 1.2em; text-align: center; animation: link-glow 2s ease-in-out infinite;">
+                "敵を殺せば平和 だから我らは平和主義"
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Lucitar. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.9em; color: #888888;">
+            This website is for educational purposes only.
+        </p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
